@@ -3,17 +3,19 @@
 {% set writing = get_section(path="writing/_index.md") %}
 <section class="home-intro" aria-labelledby="home-title">
   <p class="eyebrow"><span class="eyebrow-rule"></span>{{ config.extra.tagline }}</p>
-  <h1 id="home-title" class="display-title">A quiet place<br><em>for ideas.</em></h1>
-  <p class="intro-copy">A collection of writing about the things that deserve a closer look. Come in, take your time, and follow a thought wherever it goes.</p>
-  <a class="text-link intro-link" href="{{ get_url(path='/writing/') }}">Browse all writing <span aria-hidden="true">↗</span></a>
+  <h1 id="home-title" class="display-title">signal<span class="wordmark-mark">/</span>noise<span class="wordmark-dot">.</span></h1>
+  <p class="intro-copy">Short essays on software development, life, the universe and everything.</p>
+  <a class="text-link intro-link" href="{{ get_url(path='/writing/') }}">Browse all essays<span aria-hidden="true">→</span></a>
 </section>
 <section class="home-writing" aria-labelledby="latest-title">
-  <div class="section-heading"><p class="section-number">01 / The archive</p><h2 id="latest-title">Latest writing</h2></div>
+  <div class="section-heading">
+    <p class="section-number">01 / A library of not-babel</p>
+  </div>
   <ol class="essay-list">
     {% for post in writing.pages %}
-    {% if loop.index <= 5 %}<li><a class="essay-link" href="{{ post.permalink }}"><span class="essay-main"><span class="essay-title">{{ post.title }}</span><span class="essay-description">{{ post.description }}</span></span><span class="essay-meta"><time datetime="{{ post.date }}">{{ post.date | date(format="%d %b %Y") }}</time><span aria-hidden="true">↗</span></span></a></li>{% endif %}
+    {% if loop.index <= 5 %}<li><a class="essay-link" href="{{ post.permalink }}"><span class="essay-main"><span class="essay-title">{{ post.title }}</span><span class="essay-description">{{ post.description }}</span></span><span class="essay-meta"><time datetime="{{ post.date }}">{{ post.date | date(format="%d %b %Y") }}</time><span aria-hidden="true">→</span></span></a></li>{% endif %}
     {% endfor %}
   </ol>
-  <a class="archive-link" href="{{ get_url(path='/writing/') }}">See the full archive <span aria-hidden="true">→</span></a>
+  <a class="archive-link" href="{{ get_url(path='/writing/') }}">See the archive <span aria-hidden="true">→</span></a>
 </section>
 {% endblock content %}

@@ -23,7 +23,7 @@ Open the local address printed by Zola. To build a deployable static site, run `
 ## Make it yours
 
 1. Set `base_url`, `title`, `description`, and `extra.tagline` in `config.toml`.
-2. Replace the sample essay in `content/writing/` and the introduction in `content/about.md`.
+2. Replace the sample essay in `content/writing/` and the introduction in `content/about/_index.md`.
 3. Add essays as Markdown files in `content/writing/`, each with a title, date, and description in TOML front matter.
 
 ```toml
@@ -31,15 +31,21 @@ Open the local address printed by Zola. To build a deployable static site, run `
 title = "A new thought"
 date = 2026-10-17
 description = "One sentence about this piece."
+[extra]
+conclusion = "A final thought for the footer."
 +++
 ```
 
-Zola sorts the writing section by date. Neighbor links and the side tabs follow that order. The Atom feed is generated at `/atom.xml`.
+Zola sorts the writing section by date. Neighbor links and the side tabs follow that order. The optional `extra.conclusion` appears in the footer of an article or section. The Atom feed is generated at `/atom.xml`.
+
+Both the Archive and About are sections backed by `_index.md`. Their visible titles, descriptions, and `extra.eyebrow` fields support inline Markdown. Browser titles use the front matter `title` as plain text, so Markdown markers appear literally there.
 
 The site works without JavaScript. The script adds a color theme switch, reading progress, copy link button, and left/right arrow shortcuts between essays. The page also has a table of contents on wide screens and print styles.
+
+The only typefaces are self-hosted Montserrat and Lora. Their SIL Open Font License texts are in `static/fonts/`.
 
 ## Publish on GitHub Pages
 
 The workflow in `.github/workflows/pages.yml` checks and builds the site on pull requests. Pushes to `main` also publish the generated `public/` directory to GitHub Pages. It takes the actual site URL from GitHub Pages, so project sites and custom domains get correct links.
 
-Before the first deployment, connect this repository to GitHub and select **GitHub Actions** as the source in **Settings → Pages**. Then push `main`. The workflow needs no extra repository secret. Replace the sample content and `https://example.com` in `config.toml` with your final details before sharing links outside GitHub Pages; the workflow overrides that URL during its builds.
+Before the first deployment, connect this repository to GitHub and select **GitHub Actions** as the source in **Settings → Pages**. Then push `main`. The workflow needs no extra repository secret. Set `base_url` in `config.toml` to your final URL for local builds; the workflow overrides it during deployment.

@@ -18,17 +18,17 @@
   <div class="reading-progress" aria-hidden="true"><span id="reading-progress-bar"></span></div>
   <div class="site-shell">
     <header class="site-header">
-      <a class="wordmark" href="{{ get_url(path='/') }}" aria-label="Signal to Noise, home">signal<span class="wordmark-mark">/</span>noise<span class="wordmark-dot">.</span></a>
+      <a class="wordmark" href="{{ get_url(path='/') }}" aria-label="Signal/Noise, home">signal<span class="wordmark-mark">/</span>noise<span class="wordmark-dot">.</span></a>
       <nav class="main-nav" aria-label="Main navigation">
-        <a href="{{ get_url(path='/writing/') }}" {% if current_path is defined and current_path == '/writing/' %}aria-current="page"{% endif %}>Writing</a>
-        <a href="{{ get_url(path='/about/') }}" {% if current_path is defined and current_path == '/about/' %}aria-current="page"{% endif %}>About</a>
-        <a href="{{ get_url(path='atom.xml') }}">Feed<span class="external-mark" aria-hidden="true"> ↗</span></a>
+        <a href="{{ get_url(path='/writing/') }}" {% if current_path is defined and current_path == '/writing/' %}aria-current="page"{% endif %}>The Archive</a>
+        <a href="{{ get_url(path='/about/') }}" {% if current_path is defined and current_path == '/about/' %}aria-current="page"{% endif %}>The Archivist</a>
+        <a href="{{ get_url(path='atom.xml') }}">Feed<span class="external-mark" aria-hidden="true"> →</span></a>
       </nav>
       <button class="theme-toggle" type="button" aria-label="Switch color theme" title="Switch color theme"><span aria-hidden="true">◐</span></button>
     </header>
     <main id="main" tabindex="-1">{% block content %}{% endblock content %}</main>
     <footer class="site-footer">
-      <span>Words, with room to breathe.</span>
+      <span>{% if page is defined and page.date and page.extra.conclusion is defined %}{{ page.extra.conclusion | markdown(inline=true) | safe }}{% elif section is defined and section.extra.conclusion is defined %}{{ section.extra.conclusion | markdown(inline=true) | safe }}{% endif %}</span>
       <a href="#main">Back to top ↑</a>
     </footer>
   </div>

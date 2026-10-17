@@ -4,6 +4,7 @@ date = 2026-10-17
 description = "A sample essay about building a space for words."
 [extra]
 sample = true
+conclusion = "Leave room for the thought to land."
 +++
 
 This is a sample piece. Replace it with something you mean to say.

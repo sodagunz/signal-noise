@@ -7,7 +7,7 @@
   {% if page.higher %}<a class="edge-tab edge-tab-next" href="{{ page.higher.permalink }}" rel="next" aria-label="Next essay: {{ page.higher.title }}"><span class="edge-label">Next</span><span aria-hidden="true">→</span></a>{% endif %}
   <article class="article" id="article">
     <header class="article-header">
-      <a class="breadcrumb" href="{{ get_url(path='/writing/') }}">← All writing</a>
+      <a class="breadcrumb" href="{{ get_url(path='/writing/') }}">← The Archive</a>
       <p class="eyebrow"><span class="eyebrow-rule"></span>Essay / {{ page.date | date(format="%Y") }}</p>
       <h1 class="display-title">{{ page.title }}</h1>
       <p class="article-deck">{{ page.description }}</p>
@@ -16,7 +16,7 @@
     <div class="prose" id="article-content">{{ page.content | safe }}</div>
     <footer class="article-footer">
       <p class="endmark" aria-label="End of essay">✳</p>
-      <div class="article-actions"><button class="copy-link" type="button" data-copy-url>Copy link</button><a href="{{ get_url(path='atom.xml') }}">Follow by feed ↗</a></div>
+      <div class="article-actions"><button class="copy-link" type="button" data-copy-url>Copy link</button><a href="{{ get_url(path='atom.xml') }}">Follow by feed →</a></div>
       <nav class="article-neighbors" aria-label="Neighboring essays">
         {% if page.lower %}<a href="{{ page.lower.permalink }}" rel="prev"><span>← Previous essay</span><strong>{{ page.lower.title }}</strong></a>{% endif %}
         {% if page.higher %}<a href="{{ page.higher.permalink }}" rel="next"><span>Next essay →</span><strong>{{ page.higher.title }}</strong></a>{% endif %}
@@ -28,7 +28,7 @@
 </div>
 {% else %}
 <article class="standalone-page">
-  <header class="page-heading"><p class="eyebrow"><span class="eyebrow-rule"></span>A little context</p><h1 class="display-title">{{ page.title }}</h1><p class="intro-copy">{{ page.description }}</p></header>
+  <header class="page-heading">{% if page.extra.eyebrow is defined and page.extra.eyebrow %}<p class="eyebrow"><span class="eyebrow-rule"></span>{{ page.extra.eyebrow | markdown(inline=true) | safe }}</p>{% endif %}<h1 class="display-title">{{ page.title | markdown(inline=true) | safe }}</h1><p class="intro-copy">{{ page.description }}</p></header>
   <div class="prose">{{ page.content | safe }}</div>
 </article>
 {% endif %}

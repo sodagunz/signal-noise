@@ -1,3 +1,3 @@
 +++
-title = "Home"
+title = "signal/noise."
 +++

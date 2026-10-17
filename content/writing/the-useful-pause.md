@@ -4,6 +4,7 @@ date = 2026-10-10
 description = "A short sample note on leaving a little room between ideas."
 [extra]
 sample = true
+conclusion = "A little space can make a thought clearer."
 +++
 
 This is another sample piece, here to show how the archive and page tabs work. Replace it with your own writing.

@@ -1,6 +1,6 @@
-base_url = "https://example.com"
-title = "Signal to Noise"
-description = "A quiet place for writing and reading."
+base_url = "https://s2n.sodagu.nz/"
+title = "Signal/Noise"
+description = "Rambling thoughts and a few decent ideas"
 default_language = "en"
 compile_sass = false
 generate_feeds = true
@@ -10,4 +10,4 @@ feed_filenames = ["atom.xml"]
 smart_punctuation = true
 
 [extra]
-tagline = "Notes on paying attention"
+tagline = "Rambling thoughts and a few decent ideas"
