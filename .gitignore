@@ -1,2 +1,4 @@
 /public/
 /.zola-cache/
+/.devenv/
+/devenv.local.nix

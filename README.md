@@ -4,7 +4,13 @@ A small writing focused blog built with [Zola](https://www.getzola.org/). The de
 
 ## Run it
 
-Install Zola 0.23 or later, then run:
+Install Zola 0.23 or later, or enter the pinned [devenv](https://devenv.sh/) shell:
+
+```sh
+devenv shell
+```
+
+Then run:
 
 ```sh
 zola serve
@@ -29,3 +35,9 @@ description = "One sentence about this piece."
 Zola sorts the writing section by date. Neighbor links and the side tabs follow that order. The Atom feed is generated at `/atom.xml`.
 
 The site works without JavaScript. The script adds a color theme switch, reading progress, copy link button, and left/right arrow shortcuts between essays. The page also has a table of contents on wide screens and print styles.
+
+## Publish on GitHub Pages
+
+The workflow in `.github/workflows/pages.yml` checks and builds the site on pull requests. Pushes to `main` also publish the generated `public/` directory to GitHub Pages. It takes the actual site URL from GitHub Pages, so project sites and custom domains get correct links.
+
+Before the first deployment, connect this repository to GitHub and select **GitHub Actions** as the source in **Settings → Pages**. Then push `main`. The workflow needs no extra repository secret. Replace the sample content and `https://example.com` in `config.toml` with your final details before sharing links outside GitHub Pages; the workflow overrides that URL during its builds.
