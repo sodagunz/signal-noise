@@ -10,6 +10,8 @@ Install Zola 0.23 or later, or enter the pinned [devenv](https://devenv.sh/) she
 devenv shell
 ```
 
+If you use direnv, enable its shell hook and run `direnv allow` once in this directory. The tracked `.envrc` then loads the same devenv shell automatically when you enter the repo.
+
 Then run:
 
 ```sh
