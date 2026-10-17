@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block head %}<title>{{ section.title }} · {{ config.title }}</title><meta name="description" content="{{ section.description }}">{% endblock head %}
+{% block content %}
+<header class="page-heading archive-heading">
+  <p class="eyebrow"><span class="eyebrow-rule"></span>The index</p>
+  <h1 class="display-title">All the <em>writing.</em></h1>
+  <p class="intro-copy">{{ section.description }}</p>
+</header>
+<section aria-label="Essays">
+  <div class="section-heading"><p class="section-number">Collected pieces</p><p class="entry-count">{{ section.pages | length }} {% if section.pages | length == 1 %}entry{% else %}entries{% endif %}</p></div>
+  <ol class="essay-list">
+    {% for post in section.pages %}
+    <li><a class="essay-link" href="{{ post.permalink }}"><span class="essay-main"><span class="essay-title">{{ post.title }}</span><span class="essay-description">{{ post.description }}</span></span><span class="essay-meta"><time datetime="{{ post.date }}">{{ post.date | date(format="%d %b %Y") }}</time><span aria-hidden="true">↗</span></span></a></li>
+    {% endfor %}
+  </ol>
+</section>
+{% endblock content %}

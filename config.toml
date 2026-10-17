@@ -1,0 +1,13 @@
+base_url = "https://example.com"
+title = "Signal to Noise"
+description = "A quiet place for writing and reading."
+default_language = "en"
+compile_sass = false
+generate_feeds = true
+feed_filenames = ["atom.xml"]
+
+[markdown]
+smart_punctuation = true
+
+[extra]
+tagline = "Notes on paying attention"
