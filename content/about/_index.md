@@ -8,7 +8,7 @@ conclusion = ""
 +++
 
 <p><span class="wordmark">signal<span class="wordmark-mark">/</span>noise<span class="wordmark-mark">.</span></span> is sodagunz's personal diary, devlog, and portfolio of sorts.</p>
-<p>All the stuff I write here is attributed to the public domain under Creative Commons. Don't be rude and give me some attribution if you go viral or whatever. </p>
+<p>Everything I write here is available under <a href="https://creativecommons.org/publicdomain/zero/1.0/">CC0 1.0</a>. Share it or adapt it however you like. CC0 doesn't require credit, but it'd be nice if you gave me a nod if you go viral or whatever.</p>
 
 You can find me on:
 - [<span class="contact-icon contact-icon-mail" aria-hidden="true"></span>sodagunz@proton.me](mailto:sodagunz@proton.me)

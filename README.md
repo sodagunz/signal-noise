@@ -1,51 +1,15 @@
 # Signal to Noise
 
-A small writing focused blog built with [Zola](https://www.getzola.org/). The design takes cues from [austere](https://www.getzola.org/themes/austere/), [Typography for Lawyers](https://typographyforlawyers.com/what-is-typography.html), and [This is a web page](https://justinjackson.ca/words.html). It uses no external fonts, analytics, or runtime dependencies.
+Rambling thoughts and a few decent ideas.
 
-## Run it
+Built with Zola, you can run it by entering the devenv (or allowing direnv if you use that)
 
-Install Zola 0.23 or later, or enter the pinned [devenv](https://devenv.sh/) shell:
 
 ```sh
 devenv shell
-```
-
-If you use direnv, enable its shell hook and run `direnv allow` once in this directory. The tracked `.envrc` then loads the same devenv shell automatically when you enter the repo.
-
-Then run:
-
-```sh
 zola serve
 ```
 
-Open the local address printed by Zola. To build a deployable static site, run `zola build`; the output goes to `public/`.
+## Licenses
 
-## Make it yours
-
-1. Set `base_url`, `title`, `description`, and `extra.tagline` in `config.toml`.
-2. Replace the sample essay in `content/writing/` and the introduction in `content/about/_index.md`.
-3. Add essays as Markdown files in `content/writing/`, each with a title, date, and description in TOML front matter.
-
-```toml
-+++
-title = "A new thought"
-date = 2026-10-17
-description = "One sentence about this piece."
-[extra]
-conclusion = "A final thought for the footer."
-+++
-```
-
-Zola sorts the writing section by date. Neighbor links and the side tabs follow that order. The optional `extra.conclusion` appears in the footer of an article or section. The Atom feed is generated at `/atom.xml`.
-
-Both the Archive and About are sections backed by `_index.md`. Their visible titles, descriptions, and `extra.eyebrow` fields support inline Markdown. Browser titles use the front matter `title` as plain text, so Markdown markers appear literally there.
-
-The site works without JavaScript. The script adds a color theme switch, reading progress, copy link button, and left/right arrow shortcuts between essays. The page also has a table of contents on wide screens and print styles.
-
-The only typefaces are self-hosted Montserrat and Lora. Their SIL Open Font License texts are in `static/fonts/`.
-
-## Publish on GitHub Pages
-
-The workflow in `.github/workflows/pages.yml` checks and builds the site on pull requests. Pushes to `main` also publish the generated `public/` directory to GitHub Pages. It takes the actual site URL from GitHub Pages, so project sites and custom domains get correct links.
-
-Before the first deployment, connect this repository to GitHub and select **GitHub Actions** as the source in **Settings → Pages**. Then push `main`. The workflow needs no extra repository secret. Set `base_url` in `config.toml` to your final URL for local builds; the workflow overrides it during deployment.
+Code, templates, styles, scripts, and original site assets are under the [MIT license](LICENSE). Original writing and media in `content/` are dedicated under [CC0 1.0](LICENSE-CONTENT.md). Bundled fonts have their own SIL Open Font License files in `static/fonts/`.

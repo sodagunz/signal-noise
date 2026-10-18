@@ -3,7 +3,7 @@
 {% block content %}
 <div class="reading-section">
 <header class="page-heading">
-  {% if section.extra.eyebrow is defined and section.extra.eyebrow %}<p class="eyebrow"><span class="eyebrow-rule"></span>{{ section.extra.eyebrow | markdown(inline=true) | safe }}</p>{% endif %}
+  {% if section.extra.eyebrow is defined and section.extra.eyebrow %}<p class="eyebrow"><span class="eyebrow-rule"></span>{% if section.extra.icon is defined %}<span class="symbol-icon symbol-icon-{{ section.extra.icon }}" aria-hidden="true"></span>{% endif %}{{ section.extra.eyebrow | markdown(inline=true) | safe }}</p>{% endif %}
   <h1 class="display-title">{{ section.title | markdown(inline=true) | safe }}</h1>
   <p class="intro-copy">{{ section.description | markdown(inline=true) | safe }}</p>
 </header>

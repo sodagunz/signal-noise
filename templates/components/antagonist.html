@@ -1,0 +1,7 @@
+{% component antagonist(name: string = "The skeptic") %}
+{% set speaker = name | lower %}
+<aside class="antagonist{% if speaker == 'the archivist' %} antagonist-archivist{% endif %}" aria-label="{{ name }}">
+  <div class="antagonist-heading">{% if speaker == 'the archivist' %}<span>{{ name }}</span><span class="symbol-icon symbol-icon-archivist" aria-hidden="true"></span>{% else %}<span class="symbol-icon symbol-icon-skeptic" aria-hidden="true"></span><span>{{ name }}</span>{% endif %}</div>
+  <div class="antagonist-voice">{{ body | markdown | safe }}</div>
+</aside>
+{% endcomponent antagonist %}
