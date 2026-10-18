@@ -3,6 +3,7 @@ title = "About the *author*"
 description = "Who's writing this and why?"
 [extra]
 eyebrow = "The Archivist"
+icon = "archivist"
 conclusion = ""
 +++
 
