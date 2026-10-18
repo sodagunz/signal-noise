@@ -28,17 +28,9 @@ jobs:
         run: devenv shell -- zola check --skip-external-links
       - name: Configure Pages
         if: github.event_name != 'pull_request'
-        id: pages
         uses: actions/configure-pages@v5
       - name: Build static site
-        env:
-          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
-        run: |
-          if [[ "$GITHUB_EVENT_NAME" != "pull_request" && -z "$PAGES_BASE_URL" ]]; then
-            echo "GitHub Pages did not provide a site URL." >&2
-            exit 1
-          fi
-          devenv shell -- zola build --base-url "${PAGES_BASE_URL:-https://example.com}"
+        run: devenv shell -- zola build
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
         uses: actions/upload-pages-artifact@v4
